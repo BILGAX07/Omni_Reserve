@@ -1,0 +1,33 @@
+﻿using OmniReserve.Domain.Enums;
+
+namespace OmniReserve.Domain.Entities;
+
+public class User
+{
+    public Guid Id { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string Email { get; private set; }
+    public string PasswordHash { get; private set; }
+    public Role Role { get; private set; }
+
+    public User(
+        string firstName,
+        string lastName,
+        string email,
+        string passwordHash,
+        Role role)
+    {
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(firstName);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(lastName);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(email);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(passwordHash);
+
+        Id = Guid.NewGuid();
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        PasswordHash = passwordHash;
+        Role = role;
+    }
+}
