@@ -8,6 +8,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseMiddleware<OmniReserve.Api.Middlewares.GlobalExceptionHandlingMiddleware>();
+
 // Configure the HTTP request pipeline.
 
 app.UseSwagger();
