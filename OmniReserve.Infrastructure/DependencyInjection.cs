@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using OmniReserve.Application.Common.Interfaces;
+using OmniReserve.Infrastructure.Persistence.Repositories;
 
 namespace OmniReserve.Infrastructure;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services,
-        IConfiguration configuration)
+        this IServiceCollection services)
     {
-        // Aquí se registrarán posteriormente los servicios de Infrastructure.
+        services.AddScoped<IRoomRepository, RoomRepository>();
 
         return services;
     }

@@ -1,3 +1,4 @@
+using OmniReserve.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 
@@ -22,4 +25,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
